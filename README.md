@@ -6,6 +6,14 @@
 
 ### 4.1 阶跃响应法（面积法）
 
-- code：`./chapter4/step_response/step_response_system_identification.m`
+- code：`./chapter4/4.1 step_response/step_response_system_identification.m`
 - 添加噪声后就无法辨识，需要将噪声的均值和方差改为0
 - 超过2阶的暂时还不行
+
+### 4.2 脉冲响应法（Hankel矩阵）
+
+- code：`./chapter4/4.2 impulse_response/impulse_response_system_identification.m`
+- 参考代码：http://t.csdnimg.cn/rXCcY
+- 暂时只能辨识3阶系统
+
+### 4.3 相关分析法
