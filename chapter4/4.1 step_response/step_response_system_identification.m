@@ -21,7 +21,7 @@ y = lsim(sys, u, t);  % 通过系统模型模拟输出信号
 
 % Step 4：添加噪声
 mean_val = 0;  % 均值
-variance = 0.05;  % 方差
+variance = 0;  % 方差
 noise = sqrt(variance) * randn(max(size(t)), 1) + mean_val;  % 生成随机噪声
 y = y + noise;  % 添加噪声到输出信号
 
