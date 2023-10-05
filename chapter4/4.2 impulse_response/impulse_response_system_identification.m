@@ -21,14 +21,29 @@ discrete_sys = c2d(sys, T);  % 离散化
 [y, ~] = impulse(discrete_sys);
 
 % Step 4：系统辨识
-H = [y(2), y(3), y(4); y(3), y(4), y(5); y(4), y(5), y(6)];  % 构造Hankel矩阵
+n = 3;  % 系统阶次
+H = zeros(n, n);
+for i = 1:n  % 构造Hankel矩阵
+    for j = 1:n
+        H(i, j) = y(i + j);
+    end
+end
 if det(H) == 0
-	    disp('Hankel矩阵奇异，无法求逆');
-	else
-	    A = H \ [-y(5); -y(6); -y(7)];  % 对应书P98 公式(4.3.45) 等价于 inv(H) * [-y(5);-y(6);-y(7)];
-	    B = [1, 0, 0; A(3), 1, 0; A(2), A(3), 1] * [y(2); y(3); y(4)];  % 对应书P98 公式(4.3.46)
-	    discrete_num = B';
-    discrete_den = [1, A(3), A(2), A(1)];
+    disp('Hankel矩阵奇异，无法求逆');
+else
+    A = -H \ y(2 + n:2 + n + n - 1);  % 对应书P98 公式(4.3.45) 等价于 -inv(H) * y(2 + n:2 + n + n - 1);
+    tm = eye(n, n);
+    for i = 1:n
+        for j = 1:i-1
+            tm(i, j) = A(n + j - i + 1);
+        end
+    end
+    B = tm * y(2:2 + n - 1);  % 对应书P98 公式(4.3.46)
+    discrete_num = B';
+    discrete_den = ones(1, n + 1);
+    for i = 2:n + 1
+        discrete_den(i) = A(n + 2 - i);
+    end
     estimated_discrete_sys = tf(discrete_num, discrete_den, T);  % 创建1个采样时间为T的离散时间传递函数
 end
 estimated_sys = d2c(estimated_discrete_sys, 'tustin');  % 辨识出的传递函数
