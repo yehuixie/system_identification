@@ -25,13 +25,13 @@ H = [y(2), y(3), y(4); y(3), y(4), y(5); y(4), y(5), y(6)];  % 构造Hankel矩�
 if det(H) == 0
 	    disp('Hankel矩阵奇异，无法求逆');
 	else
-	    A = inv(H)*[-y(5); -y(6); -y(7)];
-	    B = [1, 0, 0; A(3), 1, 0; A(2), A(3), 1] * [y(2); y(3); y(4)];
-	    numd = B';
-    dend = [1, A(3), A(2), A(1)];
-    bssysd = tf(numd, dend, T);  % 创建1个采样时间为T的离散时间传递函数
+	    A = H \ [-y(5); -y(6); -y(7)];  % 对应书P98 公式(4.3.45) 等价于 inv(H) * [-y(5);-y(6);-y(7)];
+	    B = [1, 0, 0; A(3), 1, 0; A(2), A(3), 1] * [y(2); y(3); y(4)];  % 对应书P98 公式(4.3.46)
+	    discrete_num = B';
+    discrete_den = [1, A(3), A(2), A(1)];
+    estimated_discrete_sys = tf(discrete_num, discrete_den, T);  % 创建1个采样时间为T的离散时间传递函数
 end
-estimated_sys = d2c(bssysd, 'tustin');  % 辨识出的传递函数
+estimated_sys = d2c(estimated_discrete_sys, 'tustin');  % 辨识出的传递函数
 
 % Step 5：绘制结果
 figure;

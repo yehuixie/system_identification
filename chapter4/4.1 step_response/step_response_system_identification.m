@@ -77,4 +77,5 @@ step(sys, 'b--', estimated_sys, 'r');  % 绘制辨识结果和真实系统的阶
 legend('真实系统', '辨识结果');
 grid on, grid minor;
 
+sys
 estimated_sys
