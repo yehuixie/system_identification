@@ -17,3 +17,6 @@
 - 可以辨识任意阶次系统
 
 ### 4.3 相关分析法
+
+- code：`./chapter4/4.3 correlation_analysis/correlation_analysis_system_identification.m`
+- 参考代码：http://t.csdnimg.cn/Ugr5G
