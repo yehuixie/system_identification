@@ -50,8 +50,9 @@ estimated_sys = d2c(estimated_discrete_sys, 'tustin');  % 辨识出的传递函�
 
 % Step 5：绘制结果
 figure;
-step(sys, 'b--', T * estimated_sys, 'r');  % 绘制辨识结果和真实系统的阶跃响应
+impulse(sys, 'b--', T * estimated_sys, 'r');  % 绘制辨识结果和真实系统的脉冲响应
 legend('真实系统', '辨识结果');
+title(sprintf("脉冲响应 T=%d", T));
 grid on, grid minor;
 
 sys

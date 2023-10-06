@@ -14,6 +14,6 @@
 
 - code：`./chapter4/4.2 impulse_response/impulse_response_system_identification.m`
 - 参考代码：http://t.csdnimg.cn/rXCcY
-- 暂时只能辨识3阶系统
+- 可以辨识任意阶次系统
 
 ### 4.3 相关分析法
