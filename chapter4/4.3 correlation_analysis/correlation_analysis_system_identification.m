@@ -9,7 +9,7 @@ clear
 
 % Step1：生成M序列
 fbconnection = [1 0 0 0 0 1];
-m_sequence = mseq_gen([1 0 0 0 0 1]);
+m_sequence = mseq_gen(fbconnection);
 m_sequence = repmat(m_sequence, 1, 4);
 m_sequence(m_sequence == 0) = -1;
 t = 0:length(m_sequence) - 1;  % 时间范围
