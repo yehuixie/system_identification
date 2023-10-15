@@ -23,6 +23,10 @@
 
 ## Chapter5 最小二乘辨识方法
 
-### 4.1 最小二乘一次完成法
+### 5.1 最小二乘一次完成法
 
 - code：`./chapter5/5.1 least_square/least_square.m`
+
+### 5.2 最小二乘递推法
+
+- code：`./chapter5/5.2 recursive_least_square/recursive_least_square.m`
