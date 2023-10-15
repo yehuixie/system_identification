@@ -32,16 +32,16 @@ theta_hat_1 = zeros(na + nb + 1 + nc, 1);  % theta_hat初值 参考教材P149 �
 P = 10^6 * eye(na + nb + 1 + nc);  % 参考教材P149 式(5.8.20)
 for k = 1 : L
     h = [-zk; uk(d : d + nb); xik];
-    y(k) = h' * theta + noise(k);  % 得到输出
+    z(k) = h' * theta + noise(k);  % 得到输出
     
     h_hat = [-zk; uk(d : d + nb); xiek];  % 组建h_hat
     
     % 递推增广最小二乘法 参考教材P173 式(6.4.8)
     K = P * h_hat / (1 + h_hat' * P * h_hat);
-    theta_hat(:, k) = theta_hat_1 + K * (y(k) - h_hat' * theta_hat_1);
+    theta_hat(:, k) = theta_hat_1 + K * (z(k) - h_hat' * theta_hat_1);
     P = (eye(na + nb + 1 + nc) - K * h_hat') * P;
     
-    xie = y(k) - h_hat' * theta_hat(:, k);  % 噪声的估计值 参考教材P173 式(6.4.7)
+    xie = z(k) - h_hat' * theta_hat(:, k);  % 噪声的估计值 参考教材P173 式(6.4.7)
     
     % 更新数据
     theta_hat_1 = theta_hat(:, k);
@@ -54,7 +54,7 @@ for k = 1 : L
     for i = na : -1 : 2
         zk(i) = zk(i - 1);
     end
-    zk(1) = y(k);
+    zk(1) = z(k);
     
     for i = nc : -1 : 2
         xik(i) = xik(i - 1);
@@ -64,7 +64,7 @@ for k = 1 : L
     xiek(1) = xie;
 end
 d_v = var(noise);  % 噪声方差
-d_y = var(y);  % 过程输出方差
+d_y = var(z);  % 过程输出方差
 ratio_vy = sqrt(d_v / d_y);  % 噪信比
 
 % Step 5：绘制参数估计值的变化过程
