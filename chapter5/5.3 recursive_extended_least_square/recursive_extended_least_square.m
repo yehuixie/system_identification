@@ -17,11 +17,10 @@ L = 1000;  % 数据长度
 fbconnection = [1 0 0 1];
 m_sequence = mseq_gen(fbconnection); m_sequence(m_sequence == 0) = -1;
 m_sequence = repmat(m_sequence, 1, ceil(L / length(m_sequence)));
-u = randn(L, 1);  % 输入采用白噪声序列
 
 % Step 3：生成噪声
 mean_val = 0;  % 均值
-variance = 2;  % 方差
+variance = 1;  % 方差
 noise = sqrt(variance) * randn(L, 1) + mean_val;  % 生成随机噪声
 
 % Step 4：系统辨识
@@ -50,7 +49,7 @@ for k = 1 : L
     for i = d + nb : -1 : 2
         uk(i) = uk(i - 1);
     end
-    uk(1) = u(k);
+    uk(1) = m_sequence(k);
     
     for i = na : -1 : 2
         zk(i) = zk(i - 1);
