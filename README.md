@@ -30,3 +30,7 @@
 ### 5.2 最小二乘递推法
 
 - code：`./chapter5/5.2 recursive_least_square/recursive_least_square.m`
+
+### 5.3 增广最小二乘递推法（考虑有色噪声）
+
+- code：`./chapter5/5.3 recursive_extended_least_square/recursive_extended_least_square.m`
