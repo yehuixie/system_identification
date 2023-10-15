@@ -20,3 +20,9 @@
 
 - code：`./chapter4/4.3 correlation_analysis/correlation_analysis_system_identification.m`
 - 参考代码：http://t.csdnimg.cn/Ugr5G
+
+## Chapter5 最小二乘辨识方法
+
+### 4.1 最小二乘一次完成法
+
+- code：`./chapter5/5.1 least_square/least_square.m`
