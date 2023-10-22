@@ -34,3 +34,9 @@
 ### 5.3 增广最小二乘递推法（考虑有色噪声）
 
 - code：`./chapter5/5.3 recursive_extended_least_square/recursive_extended_least_square.m`
+
+## Chapter7 梯度校正参数辨识
+
+### 7.1 梯度校正参数辨识
+
+- code：`./chapter7/7.1 recursive_gradient_correction/recursive_gradient_correction.m`
