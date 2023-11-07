@@ -40,3 +40,11 @@
 ### 7.1 梯度校正参数辨识
 
 - code：`./chapter7/7.1 recursive_gradient_correction/recursive_gradient_correction.m`
+
+## Chapter8 极大似然估计法参数辨识
+
+### 8.1 newton-raphson法
+
+### 8.2 递推的极大似然估计法
+
+- code：`./chapter8/8.2 recursive_maximum_likelihood/recursive_maximum_likelihood.m`
