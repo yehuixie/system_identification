@@ -1,6 +1,6 @@
 # 系统辨识课程代码
 
-参考课本：方崇智, 萧德云. 过程辨识: 清华大学出版社, 1988
+参考课本：方崇智, 萧德云. 过程辨识[M]. 清华大学出版社, 1988.
 
 ## Chapter4 经典辨识方法
 
@@ -45,6 +45,18 @@
 
 ### 8.1 newton-raphson法
 
+- 没找到可以抄的，随便弄了个随机牛顿法
+
 ### 8.2 递推的极大似然估计法
 
 - code：`./chapter8/8.2 recursive_maximum_likelihood/recursive_maximum_likelihood.m`
+
+## Chapter13 模型阶次的确定
+
+### 13.1 F检验法
+
+- code：`./chapter13/13.1 F_test/F_test.m`
+
+### 13.2 AIC定阶准则
+
+- code：`./chapter13/13.2 AIC/AIC.m`

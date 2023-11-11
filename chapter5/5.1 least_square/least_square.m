@@ -28,7 +28,7 @@ noise = sqrt(variance) * randn(L, 1) + mean_val;  % 生成随机噪声
 uk = zeros(d + nb, 1);  % 输入初值：uk(i)表示u(k-i)
 zk = zeros(na, 1);  % 输出初值
 for k = 1 : L
-    HL(k, :) = [-zk; uk(d : d + nb)]';  % 此处HL(k, :)为行向量，便于组成phi矩阵
+    HL(k, :) = [-zk; uk(d : d + nb)]';  % 此处HL(k, :)为行向量，便于组成HL矩阵
     z(k) = HL(k, :) * theta + noise(k);  % 得到输出
     
     u(k) = m_sequence(k);
